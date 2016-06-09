@@ -94,7 +94,7 @@ boolean overPlay() {
 boolean foundWaldo() {
   switch(currentScene) {
   case 0:
-    return false; //mouseX > 622 && mouseX < 636 && mouseY > 450 && mouseY < 483;
+    return mouseX > 622 && mouseX < 636 && mouseY > 450 && mouseY < 483;
   case 1:
     return mouseX > 650 && mouseX < 661 && mouseY > 568 && mouseY < 585;
   case 2:
@@ -116,10 +116,14 @@ void mouseClicked() {
   if (currentScene == -1 && overPlay()) {
     currentScene = 0;
   } else if (currentScene > -1 && foundWaldo()) {
-    currentScene = currentScene + 1;
+    updateUI();
   } else {
     println("that's not Waldo");
   }
+}
+
+void updateUI() {
+  
 }
 
 void xy() {
